@@ -29,6 +29,33 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
         echo '(Invalid) ';
     }
     echo "Email: {$email}<br/>";
+    
+    echo "<hr>CSV Format:<br/>
+          firstname,{$firstname}<br/>
+          middlename,{$middlename}<br/>
+          lastname,{$lastname}<br/>
+          email,{$email}<br/>
+          sex,{$sex}<br/>
+          subjects,".implode(",",$subjects);
+    
+    echo "<hr>Table Format:<br>
+          <table>
+           <tr>
+            <th>firstname</th>
+            <th>middlename</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>sex</th>
+            <th>subjects</th>
+           </tr>
+            <td>{$firstname}</td>
+            <td>{$middlename}</td>
+            <td>{$lastname}</td>
+            <td>{$email}</td>
+            <td>{$sex}</td>
+            <td>".implode(",", $subjects)."</td>
+           </tr>
+          </table>";
 }
 else{
     echo 'Open on the html form.';

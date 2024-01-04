@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+ </head>
+ <body>
+  <style>
+   body{
+    margin: 0px;
+    padding: 0px;
+   }
+    
+   .main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #0b1a1d;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background3.gif');
+    height: 100vh;
+    color: white;
+   }
+   
+   form{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid white;
+    background-color: rgba(255,255,255,0.2);
+    //margin-bottom: 100px;
+   }
+   
+   form > div{
+    display: flex;
+    //justify-content: center;
+    margin: 5px;
+    gap: 20px;
+   }
+   
+   form > label{
+    margin: 5px;
+   }
+
+   input,select{
+    color: white;
+    border: 1px solid white;
+    background: rgba(255,255,255,0.3);
+   }
+
+   option{
+    color: black;
+    background: rgba(255,255,255,0);
+   }
+  
+  </style>
+  <div class="main-container" id="main-container">
+  <form action="test-form.php" method="POST">
+   <div>First Name:
+   <input type="text" id="firstname" name="firstname" required></div>
+   
+   <div>Middle Name:
+   <input type="text" id="middlename" name="middlename" required></div>
+   
+   <div>Last Name:
+   <input type="text" id="lastname" name="lastname" required></div>
+   
+   <div>Email:
+   <input type="text" id="email" name="email" required></div>
+   
+   <div>Gender:
+   <select name="gender" required>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+   </select>
+   </div>
+   
+   <div>Subjects Taken:</div>
+   <label for="math">
+    <input type="checkbox" id="math" name="math">Math</label>
+   <label for="science">
+    <input type="checkbox" id="science" name="science">Science</label>
+   <label for="filipino">
+    <input type="checkbox" id="filipino" name="filipino">Filipino</label>
+   <label for="english">
+    <input type="checkbox" id="english" name="english">English</label>
+   
+   <div>
+   <input type="Reset">
+   <input type="submit" placeholder="Submit">
+   </div>
+  </form>
+  </div>
+
+
+
+
+  <script>
+   function changeBackground() {
+    console.log("resized")
+    let viewportWidth = window.innerWidth;
+    let body = document.getElementById('main-container');
+    if (viewportWidth < 768) {
+     body.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("background3.gif")';
+    } else {
+     body.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("background4.gif")';
+    }
+   }
+    window.addEventListener('resize', changeBackground);
+    changeBackground();
+  </script>
+ </body>
+</html>

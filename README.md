@@ -2,4 +2,4 @@
 
 ---
 
-Basic Form design preview [here](https://vrcxz.github.io/integrative-programming/basic-form-preview/form.html)
+Basic Form design preview [here](https://github.com/vrcxz/integrative-programming/blob/master/registration-form/form.html)

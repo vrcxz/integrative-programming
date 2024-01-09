@@ -16,13 +16,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: #0b1a1d;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('background3.gif');
     height: 100vh;
     color: white;
    }
+   
+   
+  @media (max-width: 600px) {
+   .main-container {
+     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("background3.gif");
+     background-repeat: no-repeat;
+     background-size: 100%;
+     background-color: #0b1a1d;
+   }
+  }
+
+  @media (min-width: 600px) {
+   .main-container {
+     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("background4.gif");
+     background-repeat: no-repeat;
+     background-size: 100%;
+     background-color: #0b1a1d;
+   }
+  }
    
    form{
     display: flex;
@@ -30,12 +45,17 @@
     padding: 5px;
     border: 1px solid white;
     background-color: rgba(255,255,255,0.2);
-    //margin-bottom: 100px;
    }
    
    form > div{
     display: flex;
-    //justify-content: center;
+    justify-content: space-between;
+    margin: 5px;
+    gap: 20px;
+   }
+   
+   .gender{
+    justify-content: flex-start;
     margin: 5px;
     gap: 20px;
    }
@@ -61,7 +81,7 @@
    <div>First Name:
    <input type="text" id="firstname" name="firstname" required></div>
    
-   <div>Middle Name:
+   <div>Middle Name: 
    <input type="text" id="middlename" name="middlename" required></div>
    
    <div>Last Name:
@@ -70,7 +90,7 @@
    <div>Email:
    <input type="text" id="email" name="email" required></div>
    
-   <div>Gender:
+   <div class="gender">Gender:
    <select name="gender" required>
     <option value="male">Male</option>
     <option value="female">Female</option>
@@ -93,23 +113,5 @@
    </div>
   </form>
   </div>
-
-
-
-
-  <script>
-   function changeBackground() {
-    console.log("resized")
-    let viewportWidth = window.innerWidth;
-    let body = document.getElementById('main-container');
-    if (viewportWidth < 768) {
-     body.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("background3.gif")';
-    } else {
-     body.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("background4.gif")';
-    }
-   }
-    window.addEventListener('resize', changeBackground);
-    changeBackground();
-  </script>
  </body>
 </html>

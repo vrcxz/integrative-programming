@@ -1,27 +1,27 @@
 <?php
 
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
-    $firstname = filter_var($_POST['firstname'],FILTER_SANITIZE_STRING);
+    $firstname = htmlspecialchars($_POST['firstname']);
     echo "First Name: {$firstname}<br/>";
     
-    $middlename = filter_var($_POST['middlename'],FILTER_SANITIZE_STRING);
+    $middlename = htmlspecialchars($_POST['middlename']);
     echo "Middle Name: {$middlename}<br/>";
     
-    $lastname = filter_var($_POST['lastname'],FILTER_SANITIZE_STRING);
+    $lastname = htmlspecialchars($_POST['lastname']);
     echo "Last Name: {$lastname}<br/>";
     
-    $sex = filter_var($_POST['sex'],FILTER_SANITIZE_STRING);
+    $sex = htmlspecialchars($_POST['sex']);
     echo "Sex: {$sex}<br/>";
     
     $subjects = [];
     echo "Subjects:<br/>";
     
     for($i=0; $i<count($_POST['subjects']); $i++){
-        array_push($subjects,filter_var($_POST['subjects'][$i],FILTER_SANITIZE_STRING));
+        array_push($subjects,htmlspecialchars($_POST['subjects'][$i]));
         echo "{$subjects[$i]}<br/>";
     }
     
-    $email = filter_var($_POST['email'],FILTER_SANITIZE_STRING);
+    $email = htmlspecialchars($_POST['email']);
     if(filter_var($email,FILTER_VALIDATE_EMAIL)){
         echo '(Valid email) ';
   }

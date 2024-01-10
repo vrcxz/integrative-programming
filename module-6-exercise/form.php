@@ -1,5 +1,11 @@
 <html>
   <body>
+     <?php
+      if(isset($_GET['message']) && $_SERVER['REQUEST_METHOD'] == 'GET'){
+       $message = $_GET['message'];
+       echo "<script>alert('{$message}')</script>";
+      }
+     ?>
     <form action="validate.php" method="POST">
       <label>First Name: </label><input type="text" name="firstname"><br>
       <label>Middle Name: </label><input type="text" name="middlename"><br>

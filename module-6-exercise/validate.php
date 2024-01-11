@@ -23,21 +23,21 @@ function validate($input) {
 
 
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
-    $firstname = filter_var($_POST['firstname'],FILTER_SANITIZE_STRING);
+    $firstname = htmlspecialchars($_POST['firstname']);
     validate($firstname);
-    $middlename = filter_var($_POST['middlename'],FILTER_SANITIZE_STRING);
+    $middlename = htmlspecialchars($_POST['middlename']);
     validate($middlename);
-    $lastname = filter_var($_POST['lastname'],FILTER_SANITIZE_STRING);
+    $lastname = htmlspecialchars($_POST['lastname']);
     validate($lastname);
-    $sex = filter_var($_POST['sex'],FILTER_SANITIZE_STRING);
+    $sex = htmlspecialchars($_POST['sex']);
     $subjects = [];
     
     for($i=0; $i<count($_POST['subjects']); $i++){
-        array_push($subjects,filter_var($_POST['subjects'][$i],FILTER_SANITIZE_STRING));
+        array_push($subjects,htmlspecialchars($_POST['subjects'][$i]));
         validate($subjects[$i]);
     }
     
-    $email = filter_var($_POST['email'],FILTER_SANITIZE_STRING);
+    $email = htmlspecialchars($_POST['email']);
     
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
         goBack();
